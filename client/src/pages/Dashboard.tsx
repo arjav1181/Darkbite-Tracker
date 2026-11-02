@@ -169,13 +169,13 @@ export default function Dashboard() {
               </TabsList>
               <TabsContent value="photo" className="mt-4">
                 <PhotoUpload
-                  onAnalyze={(file) => analyzePhotoMutation.mutateAsync(file)}
+                  onAnalyze={async (file) => { await analyzePhotoMutation.mutateAsync(file); }}
                   isAnalyzing={analyzePhotoMutation.isPending}
                 />
               </TabsContent>
               <TabsContent value="text" className="mt-4">
                 <TextDescriptionForm
-                  onAnalyze={(description) => analyzeTextMutation.mutateAsync(description)}
+                  onAnalyze={async (description) => { await analyzeTextMutation.mutateAsync(description); }}
                   isAnalyzing={analyzeTextMutation.isPending}
                 />
               </TabsContent>
@@ -185,7 +185,7 @@ export default function Dashboard() {
               <AIAnalysisResult
                 analysis={analysisResult}
                 imageUrl={pendingImageUrl || undefined}
-                onSave={(data) => addEntryMutation.mutateAsync(data)}
+                onSave={async (data) => { await addEntryMutation.mutateAsync(data); }}
               />
             )}
           </div>
