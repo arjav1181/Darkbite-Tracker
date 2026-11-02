@@ -60,9 +60,9 @@ export function FoodLogEntry({ entry, onDelete }: FoodLogEntryProps) {
               
               {(entry.protein || entry.carbs || entry.fat) && (
                 <div className="flex gap-2 text-xs text-muted-foreground">
-                  {entry.protein > 0 && <span>P: {entry.protein}g</span>}
-                  {entry.carbs > 0 && <span>C: {entry.carbs}g</span>}
-                  {entry.fat > 0 && <span>F: {entry.fat}g</span>}
+                  {(entry.protein ?? 0) > 0 && <span>P: {entry.protein ?? 0}g</span>}
+                  {(entry.carbs ?? 0) > 0 && <span>C: {entry.carbs ?? 0}g</span>}
+                  {(entry.fat ?? 0) > 0 && <span>F: {entry.fat ?? 0}g</span>}
                 </div>
               )}
 

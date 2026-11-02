@@ -26,8 +26,16 @@ export class MemStorage implements IStorage {
   async createFoodEntry(insertEntry: InsertFoodEntry): Promise<FoodEntry> {
     const id = randomUUID();
     const entry: FoodEntry = {
-      ...insertEntry,
       id,
+      name: insertEntry.name,
+      description: insertEntry.description ?? null,
+      calories: insertEntry.calories,
+      protein: insertEntry.protein ?? null,
+      carbs: insertEntry.carbs ?? null,
+      fat: insertEntry.fat ?? null,
+      imageUrl: insertEntry.imageUrl ?? null,
+      entryType: insertEntry.entryType,
+      mealType: insertEntry.mealType ?? null,
       timestamp: new Date(),
     };
     this.foodEntries.set(id, entry);
